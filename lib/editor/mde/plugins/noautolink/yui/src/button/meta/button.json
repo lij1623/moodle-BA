@@ -1,7 +1,0 @@
-{
-    "moodle-mde_noautolink-button": {
-        "requires": [
-            "moodle-editor_mde-plugin"
-        ]
-    }
-}

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor align plugin lib.
+ * mde text editor align plugin lib.
  *
- * @package    atto_align
+ * @package    mde_align
  * @copyright  2014 Jason Fowler
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @return void
  */
-function atto_indent_strings_for_js() {
+function mde_indent_strings_for_js() {
     global $PAGE;
-    $PAGE->requires->strings_for_js(array('indent', 'outdent'), 'atto_indent');
+    $PAGE->requires->strings_for_js(array('indent', 'outdent'), 'mde_indent');
 }

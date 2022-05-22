@@ -17,7 +17,7 @@
 /**
  * Manage files in user draft area attached to texteditor.
  *
- * @package   atto_managefiles
+ * @package   mde_managefiles
  * @copyright 2014 Frédéric Massart
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -57,9 +57,9 @@ if (isguestuser()) {
     print_error('noguest');
 }
 
-$title = get_string('managefiles', 'atto_managefiles');
+$title = get_string('managefiles', 'mde_managefiles');
 
-$PAGE->set_url('/lib/editor/atto/plugins/managefiles/manage.php');
+$PAGE->set_url('/lib/editor/mde/plugins/managefiles/manage.php');
 $PAGE->set_title($title);
 $PAGE->set_heading($title);
 $PAGE->set_pagelayout('popup');
@@ -87,9 +87,9 @@ foreach ($files as $file) {
     $filenames[$file->get_pathnamehash()] = ltrim($file->get_filepath(), '/') . $file->get_filename();
 }
 
-$mform = new atto_managefiles_manage_form(null,
+$mform = new mde_managefiles_manage_form(null,
     array('options' => $options, 'draftitemid' => $itemid, 'files' => $filenames, 'elementid' => $elementid,
-        'removeorphaneddrafts' => $removeorphaneddrafts), 'post', '', array('id' => 'atto_managefiles_manageform'));
+        'removeorphaneddrafts' => $removeorphaneddrafts), 'post', '', array('id' => 'mde_managefiles_manageform'));
 
 if ($data = $mform->get_data()) {
     if (!empty($data->deletefile)) {
@@ -103,9 +103,9 @@ if ($data = $mform->get_data()) {
             }
         }
         $filenames = array_diff_key($filenames, $data->deletefile);
-        $mform = new atto_managefiles_manage_form(null,
+        $mform = new mde_managefiles_manage_form(null,
             array('options' => $options, 'draftitemid' => $itemid, 'files' => $filenames, 'elementid' => $data->elementid),
-            'post', '', array('id' => 'atto_managefiles_manageform'));
+            'post', '', array('id' => 'mde_managefiles_manageform'));
     }
 }
 

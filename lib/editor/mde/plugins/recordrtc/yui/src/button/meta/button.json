@@ -1,8 +1,0 @@
-{
-    "moodle-mde_recordrtc-button": {
-        "requires": [
-            "moodle-editor_mde-plugin",
-            "moodle-mde_recordrtc-recording"
-        ]
-    }
-}
