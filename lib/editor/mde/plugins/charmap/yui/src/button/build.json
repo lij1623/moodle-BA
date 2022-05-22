@@ -1,0 +1,10 @@
+{
+  "name": "moodle-mde_charmap-button",
+  "builds": {
+    "moodle-mde_charmap-button": {
+      "jsfiles": [
+        "button.js"
+      ]
+    }
+  }
+}

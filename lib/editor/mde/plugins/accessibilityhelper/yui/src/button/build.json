@@ -1,0 +1,10 @@
+{
+  "name": "moodle-mde_accessibilityhelper-button",
+  "builds": {
+    "moodle-mde_accessibilityhelper-button": {
+      "jsfiles": [
+        "button.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "moodle-mde_clear-button": {
+        "requires": [
+            "moodle-editor_mde-plugin"
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "moodle-mde_accessibilityhelper-button": {
+        "requires": [
+            "moodle-editor_mde-plugin"
+        ]
+    }
+}

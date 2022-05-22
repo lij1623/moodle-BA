@@ -1,0 +1,8 @@
+{
+    "moodle-mde_accessibilitychecker-button": {
+        "requires": [
+            "color-base",
+            "moodle-editor_mde-plugin"
+        ]
+    }
+}

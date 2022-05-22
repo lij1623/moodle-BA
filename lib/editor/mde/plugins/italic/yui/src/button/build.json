@@ -1,0 +1,10 @@
+{
+  "name": "moodle-mde_italic-button",
+  "builds": {
+    "moodle-mde_italic-button": {
+      "jsfiles": [
+        "button.js"
+      ]
+    }
+  }
+}

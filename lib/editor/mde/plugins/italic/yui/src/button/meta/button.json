@@ -1,0 +1,7 @@
+{
+    "moodle-mde_italic-button": {
+        "requires": [
+            "moodle-editor_mde-plugin"
+        ]
+    }
+}
