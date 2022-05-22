@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_managefiles', language 'en'.
+ * Strings for component 'mde_managefiles', language 'en'.
  *
- * @package    atto_managefiles
+ * @package    mde_managefiles
  * @copyright  2014 Frédéric Massart
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,4 +31,4 @@ $string['pluginname'] = 'Manage files';
 $string['unusedfilesdesc'] = 'The following embedded files are not used in the text area:';
 $string['unusedfilesremovalnotice'] = 'Any unused files will be automatically deleted when saving changes.';
 $string['unusedfilesheader'] = 'Unused files';
-$string['privacy:metadata'] = 'The atto_managefiles plugin does not store any personal data.';
+$string['privacy:metadata'] = 'The mde_managefiles plugin does not store any personal data.';

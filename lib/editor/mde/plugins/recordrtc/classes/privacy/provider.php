@@ -15,19 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for atto_recordrtc.
+ * Privacy Subsystem implementation for mde_recordrtc.
  *
- * @package    atto_recordrtc
+ * @package    mde_recordrtc
  * @copyright  2018 Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace atto_recordrtc\privacy;
+namespace mde_recordrtc\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Privacy Subsystem for atto_recordrtc implementing null_provider.
+ * Privacy Subsystem for mde_recordrtc implementing null_provider.
  *
  * @copyright  2018 Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

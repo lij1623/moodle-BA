@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto recordrtc library functions
+ * mde recordrtc library functions
  *
- * @package    atto_recordrtc
+ * @package    mde_recordrtc
  * @author     Jesus Federico (jesus [at] blindsidenetworks [dt] com)
  * @author     Jacob Prud'homme (jacob [dt] prudhomme [at] blindsidenetworks [dt] com)
  * @copyright  2017 Blindside Networks Inc.
@@ -38,24 +38,24 @@ define('DEFAULT_TIME_LIMIT', 120);
  * @param stdClass $options - the options for the editor, including the context.
  * @param stdClass $fpoptions - unused.
  */
-function atto_recordrtc_params_for_js($elementid, $options, $fpoptions) {
+function mde_recordrtc_params_for_js($elementid, $options, $fpoptions) {
     $context = $options['context'];
     if (!$context) {
         $context = context_system::instance();
     }
 
     $sesskey = sesskey();
-    $allowedtypes = get_config('atto_recordrtc', 'allowedtypes');
-    $audiobitrate = get_config('atto_recordrtc', 'audiobitrate');
-    $videobitrate = get_config('atto_recordrtc', 'videobitrate');
-    $audiotimelimit = get_config('atto_recordrtc', 'audiotimelimit');
-    $videotimelimit = get_config('atto_recordrtc', 'videotimelimit');
+    $allowedtypes = get_config('mde_recordrtc', 'allowedtypes');
+    $audiobitrate = get_config('mde_recordrtc', 'audiobitrate');
+    $videobitrate = get_config('mde_recordrtc', 'videobitrate');
+    $audiotimelimit = get_config('mde_recordrtc', 'audiotimelimit');
+    $videotimelimit = get_config('mde_recordrtc', 'videotimelimit');
 
     // Update $allowedtypes to account for capabilities.
     $audioallowed = $allowedtypes === 'audio' || $allowedtypes === 'both';
     $videoallowed = $allowedtypes === 'video' || $allowedtypes === 'both';
-    $audioallowed = $audioallowed && has_capability('atto/recordrtc:recordaudio', $context);
-    $videoallowed = $videoallowed && has_capability('atto/recordrtc:recordvideo', $context);
+    $audioallowed = $audioallowed && has_capability('mde/recordrtc:recordaudio', $context);
+    $videoallowed = $videoallowed && has_capability('mde/recordrtc:recordvideo', $context);
     if ($audioallowed && $videoallowed) {
         $allowedtypes = 'both';
     } else if ($audioallowed) {
@@ -91,7 +91,7 @@ function atto_recordrtc_params_for_js($elementid, $options, $fpoptions) {
 /**
  * Initialise the js strings required for this module.
  */
-function atto_recordrtc_strings_for_js() {
+function mde_recordrtc_strings_for_js() {
     global $PAGE;
 
     $strings = array('audiortc',
@@ -131,15 +131,15 @@ function atto_recordrtc_strings_for_js() {
                      'uploadaborted'
                );
 
-    $PAGE->requires->strings_for_js($strings, 'atto_recordrtc');
+    $PAGE->requires->strings_for_js($strings, 'mde_recordrtc');
 }
 
 /**
  * Map icons for font-awesome themes.
  */
-function atto_recordrtc_get_fontawesome_icon_map() {
+function mde_recordrtc_get_fontawesome_icon_map() {
     return [
-        'atto_recordrtc:i/audiortc' => 'fa-microphone',
-        'atto_recordrtc:i/videortc' => 'fa-video-camera'
+        'mde_recordrtc:i/audiortc' => 'fa-microphone',
+        'mde_recordrtc:i/videortc' => 'fa-video-camera'
     ];
 }

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor integration version file.
+ * mde text editor integration version file.
  *
- * @package    atto_equation
+ * @package    mde_equation
  * @copyright  2013 Damyon Wiese  <damyon@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * Get the list of strings for this plugin.
  * @param string $elementid
  */
-function atto_equation_strings_for_js() {
+function mde_equation_strings_for_js() {
     global $PAGE;
 
     $PAGE->requires->strings_for_js(array('saveequation',
@@ -40,7 +40,7 @@ function atto_equation_strings_for_js() {
                                           'librarygroup2',
                                           'librarygroup3',
                                           'librarygroup4'),
-                                    'atto_equation');
+                                    'mde_equation');
 }
 
 /**
@@ -50,7 +50,7 @@ function atto_equation_strings_for_js() {
  * @param stdClass $options - the options for the editor, including the context.
  * @param stdClass $fpoptions - unused.
  */
-function atto_equation_params_for_js($elementid, $options, $fpoptions) {
+function mde_equation_params_for_js($elementid, $options, $fpoptions) {
     $texexample = '$$\pi$$';
 
     // Format a string with the active filter set.
@@ -67,20 +67,20 @@ function atto_equation_params_for_js($elementid, $options, $fpoptions) {
     $library = array(
             'group1' => array(
                 'groupname' => 'librarygroup1',
-                'elements' => get_config('atto_equation', 'librarygroup1'),
+                'elements' => get_config('mde_equation', 'librarygroup1'),
                 'active' => true,
             ),
             'group2' => array(
                 'groupname' => 'librarygroup2',
-                'elements' => get_config('atto_equation', 'librarygroup2'),
+                'elements' => get_config('mde_equation', 'librarygroup2'),
             ),
             'group3' => array(
                 'groupname' => 'librarygroup3',
-                'elements' => get_config('atto_equation', 'librarygroup3'),
+                'elements' => get_config('mde_equation', 'librarygroup3'),
             ),
             'group4' => array(
                 'groupname' => 'librarygroup4',
-                'elements' => get_config('atto_equation', 'librarygroup4'),
+                'elements' => get_config('mde_equation', 'librarygroup4'),
             ));
 
     return array('texfilteractive' => $texfilteractive,

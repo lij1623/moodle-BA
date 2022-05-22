@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor recordrtc upgrade script.
+ * mde text editor recordrtc upgrade script.
  *
- * @package    atto_recordrtc
+ * @package    mde_recordrtc
  * @copyright  2021 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,24 +25,24 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Upgrade code for the recordrtc atto text editor.
+ * Upgrade code for the recordrtc mde text editor.
  *
  * @param int $oldversion the version we are upgrading from.
  * @return bool
  */
-function xmldb_atto_recordrtc_upgrade($oldversion) {
+function xmldb_mde_recordrtc_upgrade($oldversion) {
     global $CFG;
 
     // Change settings from timelimit to audiotimelimit and videotimelimit.
-    require_once($CFG->dirroot . '/lib/editor/atto/plugins/recordrtc/lib.php');
+    require_once($CFG->dirroot . '/lib/editor/mde/plugins/recordrtc/lib.php');
     if ($oldversion < 2021073000) {
-        $timelimit = get_config('atto_recordrtc', 'timelimit');
+        $timelimit = get_config('mde_recordrtc', 'timelimit');
         if ($timelimit != DEFAULT_TIME_LIMIT) {
-            set_config('audiotimelimit', $timelimit, 'atto_recordrtc');
-            set_config('videotimelimit', $timelimit, 'atto_recordrtc');
+            set_config('audiotimelimit', $timelimit, 'mde_recordrtc');
+            set_config('videotimelimit', $timelimit, 'mde_recordrtc');
         }
         // Recordrtc savepoint reached.
-        upgrade_plugin_savepoint(true, 2021073000, 'atto', 'recordrtc');
+        upgrade_plugin_savepoint(true, 2021073000, 'mde', 'recordrtc');
     }
 
     // Automatically generated Moodle v4.0.0 release upgrade line.

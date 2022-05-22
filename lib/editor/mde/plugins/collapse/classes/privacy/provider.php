@@ -17,17 +17,17 @@
 /**
  * Privacy Subsystem implementation for block_activity_modules.
  *
- * @package    atto_collapse
+ * @package    mde_collapse
  * @copyright  2018 Andrew Nicols <andrew@nicols.co.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace atto_collapse\privacy;
+namespace mde_collapse\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Privacy Subsystem for atto_collapse implementing null_provider.
+ * Privacy Subsystem for mde_collapse implementing null_provider.
  *
  * @copyright  2018 Andrew Nicols <andrew@nicols.co.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

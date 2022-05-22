@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor recordrtc version file.
+ * mde text editor recordrtc version file.
  *
- * @package    atto_recordrtc
+ * @package    mde_recordrtc
  * @author     Jesus Federico (jesus [at] blindsidenetworks [dt] com)
  * @author     Jacob Prud'homme (jacob [dt] prudhomme [at] blindsidenetworks [dt] com)
  * @copyright  2017 Blindside Networks Inc.
@@ -28,5 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2022041900;
 $plugin->requires  = 2022041200;
-$plugin->component = 'atto_recordrtc';
+$plugin->component = 'mde_recordrtc';
 $plugin->maturity = MATURITY_STABLE;

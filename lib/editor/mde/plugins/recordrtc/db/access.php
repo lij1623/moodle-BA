@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor recordrtc capabilities.
+ * mde text editor recordrtc capabilities.
  *
- * @package    atto_recordrtc
+ * @package    mde_recordrtc
  * @copyright  2018 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [
     // Capability to record audio using this plugin.
-    'atto/recordrtc:recordaudio' => [
+    'mde/recordrtc:recordaudio' => [
         'captype'      => 'write',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => [
@@ -34,7 +34,7 @@ $capabilities = [
         ],
     ],
     // Capability to record video using this plugin.
-    'atto/recordrtc:recordvideo' => [
+    'mde/recordrtc:recordvideo' => [
         'captype'      => 'write',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes'   => [

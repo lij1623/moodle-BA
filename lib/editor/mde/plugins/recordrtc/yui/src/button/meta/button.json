@@ -1,8 +1,8 @@
 {
-    "moodle-atto_recordrtc-button": {
+    "moodle-mde_recordrtc-button": {
         "requires": [
-            "moodle-editor_atto-plugin",
-            "moodle-atto_recordrtc-recording"
+            "moodle-editor_mde-plugin",
+            "moodle-mde_recordrtc-recording"
         ]
     }
 }

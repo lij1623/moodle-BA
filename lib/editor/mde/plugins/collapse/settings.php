@@ -17,24 +17,24 @@
 /**
  * Settings that allow configuration of the list of tex examples in the equation editor.
  *
- * @package    atto_collapse
+ * @package    mde_collapse
  * @copyright  2013 Damyon Wiese
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$ADMIN->add('editoratto', new admin_category('atto_collapse', new lang_string('pluginname', 'atto_collapse')));
+$ADMIN->add('editormde', new admin_category('mde_collapse', new lang_string('pluginname', 'mde_collapse')));
 
-$settings = new admin_settingpage('atto_collapse_settings', new lang_string('settings', 'atto_collapse'));
+$settings = new admin_settingpage('mde_collapse_settings', new lang_string('settings', 'mde_collapse'));
 if ($ADMIN->fulltree) {
     // Number of groups to show when collapsed.
-    $name = new lang_string('showgroups', 'atto_collapse');
-    $desc = new lang_string('showgroups_desc', 'atto_collapse');
+    $name = new lang_string('showgroups', 'mde_collapse');
+    $desc = new lang_string('showgroups_desc', 'mde_collapse');
     $default = 6;
     $options = array_combine(range(1, 20), range(1, 20));
 
-    $setting = new admin_setting_configselect('atto_collapse/showgroups',
+    $setting = new admin_setting_configselect('mde_collapse/showgroups',
                                               $name,
                                               $desc,
                                               $default,

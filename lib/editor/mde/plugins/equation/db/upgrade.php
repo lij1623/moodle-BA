@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto equation plugin upgrade script.
+ * mde equation plugin upgrade script.
  *
- * @package    atto_equation
+ * @package    mde_equation
  * @copyright  2015 Sam Chaffee <sam@moodlerooms.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,11 +25,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Run all Atto equation upgrade steps between the current DB version and the current version on disk.
- * @param int $oldversion The old version of atto equation in the DB.
+ * Run all mde equation upgrade steps between the current DB version and the current version on disk.
+ * @param int $oldversion The old version of mde equation in the DB.
  * @return bool
  */
-function xmldb_atto_equation_upgrade($oldversion) {
+function xmldb_mde_equation_upgrade($oldversion) {
     global $CFG;
 
     // Automatically generated Moodle v3.6.0 release upgrade line.

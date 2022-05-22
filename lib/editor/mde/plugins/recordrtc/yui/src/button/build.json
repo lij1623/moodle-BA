@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_recordrtc-button",
+  "name": "moodle-mde_recordrtc-button",
   "builds": {
-    "moodle-atto_recordrtc-button": {
+    "moodle-mde_recordrtc-button": {
       "jsfiles": [
         "button.js"
       ]

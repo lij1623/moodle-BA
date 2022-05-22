@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_managefiles-usedfiles",
+    "name": "moodle-mde_managefiles-usedfiles",
     "builds": {
-        "moodle-atto_managefiles-usedfiles": {
+        "moodle-mde_managefiles-usedfiles": {
             "jsfiles": [
                 "usedfiles.js"
             ]

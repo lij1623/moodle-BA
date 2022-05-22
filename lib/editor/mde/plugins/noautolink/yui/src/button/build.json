@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_noautolink-button",
+  "name": "moodle-mde_noautolink-button",
   "builds": {
-    "moodle-atto_noautolink-button": {
+    "moodle-mde_noautolink-button": {
       "jsfiles": [
         "button.js"
       ]

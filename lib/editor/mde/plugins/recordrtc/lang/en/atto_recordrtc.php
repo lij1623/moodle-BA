@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_recordrtc', language 'en'.
+ * Strings for component 'mde_recordrtc', language 'en'.
  *
- * @package    atto_recordrtc
+ * @package    mde_recordrtc
  * @author     Jesus Federico (jesus [at] blindsidenetworks [dt] com)
  * @author     Jacob Prud'homme (jacob [dt] prudhomme [at] blindsidenetworks [dt] com)
  * @copyright  2017 Blindside Networks Inc.
@@ -25,7 +25,7 @@
  */
 
 $string['allowedtypes'] = 'Allowed types';
-$string['allowedtypes_desc'] = 'Which recording buttons should appear in Atto. In addition to this setting, there are also capabilities which can control access to the buttons to particular users in particular contexts.';
+$string['allowedtypes_desc'] = 'Which recording buttons should appear in mde. In addition to this setting, there are also capabilities which can control access to the buttons to particular users in particular contexts.';
 $string['attachrecording'] = 'Attach recording';
 $string['audioandvideo'] = 'Audio and video';
 $string['audiobitrate'] = 'Audio bitrate';

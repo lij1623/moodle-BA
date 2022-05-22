@@ -1,7 +1,7 @@
 {
-    "moodle-atto_indent-button": {
+    "moodle-mde_indent-button": {
         "requires": [
-            "moodle-editor_atto-plugin"
+            "moodle-editor_mde-plugin"
         ]
     }
 }

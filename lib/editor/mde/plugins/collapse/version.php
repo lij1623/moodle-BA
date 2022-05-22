@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor integration version file.
+ * mde text editor integration version file.
  *
- * @package    atto_collapse
+ * @package    mde_collapse
  * @copyright  2013 Damyon Wiese  <damyon@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,4 +26,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2022041900;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2022041200;        // Requires this Moodle version.
-$plugin->component = 'atto_collapse';  // Full name of the plugin (used for diagnostics).
+$plugin->component = 'mde_collapse';  // Full name of the plugin (used for diagnostics).

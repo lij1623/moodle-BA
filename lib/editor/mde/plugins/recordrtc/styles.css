@@ -1,22 +1,22 @@
-.atto_recordrtc,
-.atto_recordrtc div {
+.mde_recordrtc,
+.mde_recordrtc div {
     font-weight: normal;
     line-height: 40px;
     padding: 3px 0 3px 0;
 }
 
-.atto_recordrtc .alert {
+.mde_recordrtc .alert {
     line-height: 40px;
     text-align: center;
 }
 
-.atto_recordrtc audio {
+.mde_recordrtc audio {
     display: block;
     width: 100%;
 }
 
 @media screen and (max-width: 670px) {
-    .atto_recordrtc video {
+    .mde_recordrtc video {
         display: block;
         height: auto;
         margin: 0 auto;
@@ -25,7 +25,7 @@
 }
 
 @media screen and (min-width: 671px) {
-    .atto_recordrtc video {
+    .mde_recordrtc video {
         display: block;
         height: 480px;
         margin: 0 auto;
@@ -33,7 +33,7 @@
     }
 }
 
-.atto_recordrtc #start-stop,
-.atto_recordrtc #upload {
+.mde_recordrtc #start-stop,
+.mde_recordrtc #upload {
     white-space: normal;
 }

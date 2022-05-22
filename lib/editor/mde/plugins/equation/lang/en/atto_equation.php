@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_equation', language 'en'.
+ * Strings for component 'mde_equation', language 'en'.
  *
- * @package    atto_equation
+ * @package    mde_equation
  * @copyright  2013 Damyon Wiese  <damyon@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -37,4 +37,4 @@ $string['cursorinfo'] = 'An arrow indicates the position that new elements from 
 $string['saveequation'] = 'Save equation';
 $string['settings'] = 'Equation editor settings';
 $string['update'] = 'Update';
-$string['privacy:metadata'] = 'The atto_equation plugin does not store any personal data.';
+$string['privacy:metadata'] = 'The mde_equation plugin does not store any personal data.';

@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_managefiles-button",
+    "name": "moodle-mde_managefiles-button",
     "builds": {
-        "moodle-atto_managefiles-button": {
+        "moodle-mde_managefiles-button": {
             "jsfiles": [
                 "button.js"
             ]

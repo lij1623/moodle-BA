@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor manage files plugin form.
+ * mde text editor manage files plugin form.
  *
- * @package   atto_managefiles
+ * @package   mde_managefiles
  * @copyright 2014 Frédéric Massart
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,11 +31,11 @@ require_once($CFG->libdir."/formslib.php");
  *
  * No buttons are necessary since the draft area files are saved immediately using AJAX.
  *
- * @package   atto_managefiles
+ * @package   mde_managefiles
  * @copyright 2014 Frédéric Massart
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class atto_managefiles_manage_form extends moodleform {
+class mde_managefiles_manage_form extends moodleform {
 
     function definition() {
         global $PAGE, $USER;
@@ -49,7 +49,7 @@ class atto_managefiles_manage_form extends moodleform {
         $files = $this->_customdata['files'];
         $removeorphaneddrafts = $this->_customdata['removeorphaneddrafts'] ?? false;
 
-        $mform->addElement('header', 'filemanagerhdr', get_string('filemanager', 'atto_managefiles'));
+        $mform->addElement('header', 'filemanagerhdr', get_string('filemanager', 'mde_managefiles'));
 
         $mform->addElement('hidden', 'itemid');
         $mform->setType('itemid', PARAM_INT);
@@ -73,30 +73,30 @@ class atto_managefiles_manage_form extends moodleform {
         // Let the user know that any drafts not referenced in the text will be removed automatically.
         if ($removeorphaneddrafts) {
             $mform->addElement('static', '', '',
-                html_writer::tag('div', get_string('unusedfilesremovalnotice', 'atto_managefiles')));
+                html_writer::tag('div', get_string('unusedfilesremovalnotice', 'mde_managefiles')));
         }
 
-        $mform->addElement('header', 'missingfileshdr', get_string('missingfiles', 'atto_managefiles'));
+        $mform->addElement('header', 'missingfileshdr', get_string('missingfiles', 'mde_managefiles'));
         $mform->addElement('static', '', '',
             html_writer::tag('div',
-                html_writer::tag('div', get_string('hasmissingfiles', 'atto_managefiles')) .
+                html_writer::tag('div', get_string('hasmissingfiles', 'mde_managefiles')) .
                 html_writer::tag('div', '', array('class' => 'missing-files')
             ),
             array('class' => 'file-status'))
         );
 
-        $mform->addElement('header', 'deletefileshdr', get_string('unusedfilesheader', 'atto_managefiles'));
+        $mform->addElement('header', 'deletefileshdr', get_string('unusedfilesheader', 'mde_managefiles'));
         $mform->addElement('static', '', '',
-            html_writer::tag('div', get_string('unusedfilesdesc', 'atto_managefiles')));
+            html_writer::tag('div', get_string('unusedfilesdesc', 'mde_managefiles')));
 
         foreach ($files as $hash => $file) {
             $mform->addElement('checkbox', 'deletefile[' . $hash . ']', '', $file, array('data-filename' => $file));
             $mform->setType('deletefile[' . $hash . ']', PARAM_INT);
         }
 
-        $mform->addElement('submit', 'delete', get_string('deleteselected', 'atto_managefiles'));
+        $mform->addElement('submit', 'delete', get_string('deleteselected', 'mde_managefiles'));
 
-        $PAGE->requires->yui_module('moodle-atto_managefiles-usedfiles', 'M.atto_managefiles.usedfiles.init',
+        $PAGE->requires->yui_module('moodle-mde_managefiles-usedfiles', 'M.mde_managefiles.usedfiles.init',
             array(array(
                 'files' => array_flip($files),
                 'usercontext' => context_user::instance($USER->id)->id,

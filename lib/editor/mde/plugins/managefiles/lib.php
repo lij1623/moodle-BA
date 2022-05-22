@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor manage files plugin lib.
+ * mde text editor manage files plugin lib.
  *
- * @package    atto_managefiles
+ * @package    mde_managefiles
  * @copyright  2014 Frédéric Massart
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,9 +29,9 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @return void
  */
-function atto_managefiles_strings_for_js() {
+function mde_managefiles_strings_for_js() {
     global $PAGE;
-    $PAGE->requires->strings_for_js(array('managefiles'), 'atto_managefiles');
+    $PAGE->requires->strings_for_js(array('managefiles'), 'mde_managefiles');
 }
 
 /**
@@ -39,7 +39,7 @@ function atto_managefiles_strings_for_js() {
  *
  * @return array
  */
-function atto_managefiles_params_for_js($elementid, $options, $fpoptions) {
+function mde_managefiles_params_for_js($elementid, $options, $fpoptions) {
     global $CFG, $USER;
     require_once($CFG->dirroot . '/repository/lib.php');  // Load constants.
 
