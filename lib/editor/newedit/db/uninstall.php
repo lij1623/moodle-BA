@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Custom uninstallation procedure.
  */
-function xmldb_editor_testedit_uninstall() {
+function xmldb_editor_newedit_uninstall() {
 
     return true;
 }
