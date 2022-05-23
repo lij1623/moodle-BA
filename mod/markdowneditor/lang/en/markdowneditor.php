@@ -25,8 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-
-
 $string['markdowneditordisabled'] = 'The legacy "markdowneditor" activity is disabled.';
 $string['markdowneditorneedsupgrade'] = 'The legacy "markdowneditor" activity has been removed.';
 $string['markdowneditor:addinstance'] = 'Add a new markdowneditor';
