@@ -25,29 +25,27 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['markdowneditor:Markdowneditor'] = 'Markdown-Editor';
-$string['pluginname'] = 'Markdown-Editor';
-$string['modulename'] = 'Markdown-Editor';
 
 
+$string['markdowneditordisabled'] = 'The legacy "markdowneditor" activity is disabled.';
+$string['markdowneditorneedsupgrade'] = 'The legacy "markdowneditor" activity has been removed.';
 $string['markdowneditor:addinstance'] = 'Add a new markdowneditor';
 $string['markdowneditor:exportownsubmission'] = 'Export own submission';
 $string['markdowneditor:exportsubmission'] = 'Export submission';
 $string['markdowneditor:grade'] = 'Grade markdowneditor';
+$string['markdowneditor:Markdowneditor'] = 'Markdown-Editor';
 $string['markdowneditor:submit'] = 'Submit markdowneditor';
 $string['markdowneditor:view'] = 'View markdowneditor';
-$string['markdowneditorneedsupgrade'] = 'The legacy "markdowneditor" activity has been removed.';
 $string['messageprovider:markdowneditor_updates'] = 'markdowneditor notifications';
-$string['markdowneditordisabled'] = 'The legacy "markdowneditor" activity is disabled.';
-$string['modulename_help'] = 'Legacy activity module that has been removed from Moodle.';
+$string['modulename'] = 'Markdown-Editor';
 $string['modulenameplural'] = 'markdowneditors (Disabled)';
-$string['page-mod-markdowneditor-x'] = 'Any markdowneditor module page';
-$string['page-mod-markdowneditor-view'] = 'markdowneditor module main page';
+$string['modulename_help'] = 'Legacy activity module that has been removed from Moodle.';
 $string['page-mod-markdowneditor-submissions'] = 'markdowneditor module submission page';
-$string['upgradenotification'] = 'This activity is based on an older markdowneditor module.';
+$string['page-mod-markdowneditor-view'] = 'markdowneditor module main page';
+$string['page-mod-markdowneditor-x'] = 'Any markdowneditor module page';
 $string['pluginadministration'] = 'markdowneditor 2.2 (Disabled) administration';
+$string['pluginname'] = 'Markdown-Editor';
 $string['privacy:markedsubmissionspath'] = 'markedsubmissions';
-$string['privacy:submissionpath'] = 'submission';
 $string['privacy:metadata:markdowneditorfilter'] = 'Filter preference of markdowneditor submissions.';
 $string['privacy:metadata:markdowneditorperpage'] = 'Number of markdowneditor submissions shown per page preference.';
 $string['privacy:metadata:markdowneditormailinfo'] = 'Mail info preference for markdowneditor submissions.';
@@ -64,3 +62,5 @@ $string['privacy:metadata:markdowneditor_submissions:submissioncomment'] = 'The 
 $string['privacy:metadata:markdowneditor_submissions:teacher'] = 'The teacher user ID grading the markdowneditor submission.';
 $string['privacy:metadata:markdowneditor_submissions:timemarked'] = 'The marking date/time of the markdowneditor submission.';
 $string['privacy:metadata:markdowneditor_submissions:mailed'] = 'The mailed notification status of the markdowneditor submission.';
+$string['privacy:submissionpath'] = 'submission';
+$string['upgradenotification'] = 'This activity is based on an older markdowneditor module.';
