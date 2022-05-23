@@ -49,6 +49,12 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
 
         // Adding the standard "name" field.
         $mform->addElement('text', 'name', 'Name' , array('size' => '64'));
+        $mform->addElement('button', 'mdbuttonsh1', 'H1' , array('size' => '64'));
+        $mform->addElement('button', 'mdbuttonsh2', 'H2' , array('size' => '64'));
+        $mform->addElement('textarea', 'area', 'Markdown Inhalte' , array('size' => '64'));  
+        
+
+
         //get_string('name', 'mod_markdowneditor'
         
     
