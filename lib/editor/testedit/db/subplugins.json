@@ -1,0 +1,5 @@
+{
+    "plugintypes": {
+        "testedit": "lib\/editor\/testedit\/plugins"
+    }
+}
