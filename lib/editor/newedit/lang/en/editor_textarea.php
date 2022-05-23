@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,21 +16,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * mde text editor align plugin lib.
+ * Strings for component 'editor_newedit', language 'en', branch 'MOODLE_20_STABLE'
  *
- * @package    mde_align
- * @copyright  2014 Jason Fowler
+ * @package    editor
+ * @subpackage newedit
+ * @copyright  2009 Petr Skoda (http://skodak.org)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-/**
- * Initialise the strings required for JS.
- *
- * @return void
- */
-function mde_indent_strings_for_js() {
-    global $PAGE;
-    $PAGE->requires->strings_for_js(array('indent', 'outdent'), 'mde_indent');
-}
+$string['pluginname'] = 'Plain text area';
+$string['privacy:metadata'] = 'The Plain text area editor plugin does not store any personal data.';
