@@ -51,6 +51,16 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         $mform->addElement('button', 'mdbuttonsh2', 'H2' );
         $mform->addElement('textarea', 'area', 'Markdown Inhalte' , array('size' => '64'));  
 
+   
+        echo "<button>;
+        echo "Add new one"
+        echo "<tr>";
+        echo "<td>Name</td>";
+        echo "<td>".$name."</td>";
+        echo "</tr>";
+        echo "</table>";
+
+        
         //get_string('name', 'mod_markdowneditor'
 
         if (!empty($CFG->formatstringstriptags)) {
@@ -85,3 +95,4 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         // -> Buttons where data is send to db
     }
 }
+
