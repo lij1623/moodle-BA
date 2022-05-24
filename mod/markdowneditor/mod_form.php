@@ -54,7 +54,6 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         //$mform->addElement('button', 'mdbuttonsh2', 'H2' );
         
         $buttonarrayheadingsheadings = array();
-        //$buttonarrayheadings[] = &$mform->createElement('text', 't1', 'H1');
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading1', 'H1');
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading2', 'H2');
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading3', 'H3');
@@ -75,6 +74,14 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         $mform->addGroup($buttonarraylist);
         
         $mform->addElement('textarea', 'area', 'Inhalt des Dokuments' , array('size' => '64'));  
+
+
+        $buttonarraysubmit = array();
+        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit1', 'Speichern und zum Kurs');
+        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit2', 'Speichern und anzeigen');
+        $buttonarraysubmit[] = &$mform->createElement('cancel');
+        $mform->addGroup($buttonarraysubmit);
+
 
 
         //get_string('name', 'mod_markdowneditor'
@@ -108,7 +115,7 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
 
         // Add standard buttons.
         $this->add_action_buttons();
-        // -> Buttons where data is send to db
+        // -> Buttons where data is sent to db
     }
 }
 
