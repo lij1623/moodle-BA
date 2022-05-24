@@ -45,22 +45,38 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         // Adding the "general" fieldset, where all the common settings are shown.
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
-        // Adding the standard "name" field.
-        $mform->addElement('text', 'name', 'Name des Dokuments' , array('size' => '64'));
-        $mform->addElement('button', 'mdbuttonsh1', 'H1' );
-        $mform->addElement('button', 'mdbuttonsh2', 'H2' );
-        $mform->addElement('textarea', 'area', 'Markdown Inhalte' , array('size' => '64'));  
-
-   
-        echo "<button>;
-        echo "Add new one"
-        echo "<tr>";
-        echo "<td>Name</td>";
-        echo "<td>".$name."</td>";
-        echo "</tr>";
-        echo "</table>";
 
         
+
+        // Adding the standard "name" field.
+        $mform->addElement('text', 'name', 'Name des Dokuments' , array('size' => '64'));
+        //$mform->addElement('button', 'mdbuttonsh1', 'H1' );
+        //$mform->addElement('button', 'mdbuttonsh2', 'H2' );
+        
+        $buttonarrayheadingsheadings = array();
+        //$buttonarrayheadings[] = &$mform->createElement('text', 't1', 'H1');
+        $buttonarrayheadings[] = &$mform->createElement('button', 'heading1', 'H1');
+        $buttonarrayheadings[] = &$mform->createElement('button', 'heading2', 'H2');
+        $buttonarrayheadings[] = &$mform->createElement('button', 'heading3', 'H3');
+        $buttonarrayheadings[] = &$mform->createElement('button', 'heading4', 'H4');
+        $buttonarrayheadings[] = &$mform->createElement('button', 'heading5', 'H5');
+        $buttonarrayheadings[] = &$mform->createElement('button', 'heading6', 'H6');
+        $mform->addGroup($buttonarrayheadings);
+
+        $buttonarrayfont = array();
+        $buttonarrayfont[] = &$mform->createElement('button', 'bold', 'Bold');
+        $buttonarrayfont[] = &$mform->createElement('button', 'italic', 'Italic');
+        $buttonarrayfont[] = &$mform->createElement('button', 'underlined', 'Underlined');
+        $mform->addGroup($buttonarrayfont);
+
+        $buttonarraylist = array();
+        $buttonarraylist[] = &$mform->createElement('button', 'ol', 'Ordered List');
+        $buttonarraylist[] = &$mform->createElement('button', 'ul', 'Unordered List');
+        $mform->addGroup($buttonarraylist);
+        
+        $mform->addElement('textarea', 'area', 'Inhalt des Dokuments' , array('size' => '64'));  
+
+
         //get_string('name', 'mod_markdowneditor'
 
         if (!empty($CFG->formatstringstriptags)) {
