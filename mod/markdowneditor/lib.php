@@ -57,6 +57,8 @@ function markdowneditor_add_instance($moduleinstance, $mform = null) {
 
     $id = $DB->insert_record('markdowneditor', $moduleinstance);
 
+    // Place, where behavior is defined after clicking "Submit"?
+
     return $id;
 }
 

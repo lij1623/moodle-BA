@@ -40,24 +40,18 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
      */
     public function definition() {
         global $CFG, $DB;
-
         $mform = $this->_form;
         
-
         // Adding the "general" fieldset, where all the common settings are shown.
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
         // Adding the standard "name" field.
-        $mform->addElement('text', 'name', 'Name' , array('size' => '64'));
-        $mform->addElement('button', 'mdbuttonsh1', 'H1' , array('size' => '64'));
-        $mform->addElement('button', 'mdbuttonsh2', 'H2' , array('size' => '64'));
+        $mform->addElement('text', 'name', 'Name des Dokuments' , array('size' => '64'));
+        $mform->addElement('button', 'mdbuttonsh1', 'H1' );
+        $mform->addElement('button', 'mdbuttonsh2', 'H2' );
         $mform->addElement('textarea', 'area', 'Markdown Inhalte' , array('size' => '64'));  
-        
-
 
         //get_string('name', 'mod_markdowneditor'
-        
-    
 
         if (!empty($CFG->formatstringstriptags)) {
             $mform->setType('name', PARAM_TEXT);
@@ -67,14 +61,16 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
 
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-       // $mform->addHelpButton('name', 'Name', 'mod_markdowneditor');
+        // $mform->addHelpButton('name', 'Name', 'mod_markdowneditor');
 
+
+        //Editor 
         // Adding the standard "intro" and "introformat" fields.
-        if ($CFG->branch >= 29) {
-            $this->standard_intro_elements();
-        } else {
-            $this->add_intro_editor();
-        }
+        //if ($CFG->branch >= 29) {
+        //  $this->standard_intro_elements();
+        //} else {
+        //  $this->add_intro_editor();
+        //}
 
         // Adding the rest of mod_markdowneditor settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
@@ -86,7 +82,6 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
 
         // Add standard buttons.
         $this->add_action_buttons();
+        // -> Buttons where data is send to db
     }
-
- 
 }
