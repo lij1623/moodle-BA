@@ -18,7 +18,7 @@
             "program": "${file}",
             "cwd": "${fileDirname}",
             "port": 0,
-            "runtimeExecutable": "C:\\xampp\\php\\php.exe",
+           // "runtimeExecutable": "C:\\xampp\\php\\php.exe",
             "runtimeArgs": [
                 "-dxdebug.start_with_request=yes"
             ],
