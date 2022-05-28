@@ -76,12 +76,6 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         $mform->addElement('textarea', 'area', 'Inhalt des Dokuments' , array('size' => '64'));  
 
 
-        $buttonarraysubmit = array();
-        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit1', 'Speichern und zum Kurs');
-        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit2', 'Speichern und anzeigen');
-        $buttonarraysubmit[] = &$mform->createElement('cancel');
-        $mform->addGroup($buttonarraysubmit);
-
 
 
         //get_string('name', 'mod_markdowneditor'
@@ -94,16 +88,22 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
 
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
+        $buttonarraysubmit = array();
+        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit1', 'Speichern und zum Kurs');
+        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit2', 'Speichern und anzeigen');
+        $buttonarraysubmit[] = &$mform->createElement('cancel');
+        $mform->addGroup($buttonarraysubmit);
+
         // $mform->addHelpButton('name', 'Name', 'mod_markdowneditor');
 
 
-        //Editor 
-        // Adding the standard "intro" and "introformat" fields.
-        //if ($CFG->branch >= 29) {
+        // Editor 
+        //Adding the standard "intro" and "introformat" fields.
+        // if ($CFG->branch >= 29) {
         //  $this->standard_intro_elements();
-        //} else {
+        // } else {
         //  $this->add_intro_editor();
-        //}
+        // }
 
         // Adding the rest of mod_markdowneditor settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
@@ -112,6 +112,8 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
 
         // Add standard elements.
         $this->standard_coursemodule_elements();
+
+        
 
         // Add standard buttons.
         $this->add_action_buttons();
