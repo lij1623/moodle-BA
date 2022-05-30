@@ -11,6 +11,7 @@ $CFG->dbname    = 'moodle_db';
 $CFG->dbuser    = 'root';
 $CFG->dbpass    = '';
 $CFG->prefix    = 'mdl_';
+$CFG->cachejs = false;
 $CFG->dboptions = array (
   'dbpersist' => 0,
   'dbport' => 3306,
