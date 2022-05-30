@@ -42,17 +42,21 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         global $CFG, $DB;
         $mform = $this->_form;
         
-        // Adding the "general" fieldset, where all the common settings are shown.
+        // GENERAL
         $mform->addElement('header', 'general', get_string('general', 'form'));
+        $mform->addElement('text', 'name', 'Name' , array('size' => '64'));
+        if (!empty($CFG->formatstringstriptags)) {
+            $mform->setType('name', PARAM_TEXT);
+        } else {
+            $mform->setType('name', PARAM_CLEANHTML);
+        }
+        $mform->addRule('name', null, 'required', null, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
+        $this->standard_intro_elements();
 
-
-        
-
-        // Adding the standard "name" field.
-        $mform->addElement('text', 'name', 'Name des Dokuments' , array('size' => '64'));
-        //$mform->addElement('button', 'mdbuttonsh1', 'H1' );
-        //$mform->addElement('button', 'mdbuttonsh2', 'H2' );
-        
+        // CONTENT 
+        $mform->addElement('header', 'contentsection', 'Inhalt im Markdownformat');
+        // buttons
         $buttonarrayheadingsheadings = array();
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading1', 'H1');
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading2', 'H2');
@@ -61,63 +65,31 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading5', 'H5');
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading6', 'H6');
         $mform->addGroup($buttonarrayheadings);
-
         $buttonarrayfont = array();
         $buttonarrayfont[] = &$mform->createElement('button', 'bold', 'Bold');
         $buttonarrayfont[] = &$mform->createElement('button', 'italic', 'Italic');
         $buttonarrayfont[] = &$mform->createElement('button', 'underlined', 'Underlined');
         $mform->addGroup($buttonarrayfont);
-
         $buttonarraylist = array();
         $buttonarraylist[] = &$mform->createElement('button', 'ol', 'Ordered List');
         $buttonarraylist[] = &$mform->createElement('button', 'ul', 'Unordered List');
         $mform->addGroup($buttonarraylist);
-        
-        $mform->addElement('textarea', 'area', 'Inhalt des Dokuments' , array('size' => '64'));  
 
 
 
+        $mform->addElement('editor', 'markdowneditor', 'Seiteninhalt');
+        $mform->addRule('markdowneditor', get_string('required'), 'required', null, 'client');
 
         //get_string('name', 'mod_markdowneditor'
-
-        if (!empty($CFG->formatstringstriptags)) {
-            $mform->setType('name', PARAM_TEXT);
-        } else {
-            $mform->setType('name', PARAM_CLEANHTML);
-        }
-
-        $mform->addRule('name', null, 'required', null, 'client');
-        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        $buttonarraysubmit = array();
-        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit1', 'Speichern und zum Kurs');
-        $buttonarraysubmit[] = &$mform->createElement('submit', 'submit2', 'Speichern und anzeigen');
-        $buttonarraysubmit[] = &$mform->createElement('cancel');
-        $mform->addGroup($buttonarraysubmit);
-
-        // $mform->addHelpButton('name', 'Name', 'mod_markdowneditor');
-
-
-        // Editor 
-        //Adding the standard "intro" and "introformat" fields.
-        // if ($CFG->branch >= 29) {
-        //  $this->standard_intro_elements();
+        // if (!empty($CFG->formatstringstriptags)) {
+        //     $mform->setType('name', PARAM_TEXT);
         // } else {
-        //  $this->add_intro_editor();
+        //     $mform->setType('name', PARAM_CLEANHTML);
         // }
-
-        // Adding the rest of mod_markdowneditor settings, spreading all them into this fieldset
-        // ... or adding more fieldsets ('header' elements) if needed for better logic.
-       // $mform->addElement('static', 'label1', 'markdowneditorsettings', get_string('markdowneditorsettings', 'mod_markdowneditor'));
-        //$mform->addElement('header', 'markdowneditorfieldset', get_string('markdowneditorfieldset', 'mod_markdowneditor'));
-
-        // Add standard elements.
+        // $mform->addRule('name', null, 'required', null, 'client');
+        // $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
         $this->standard_coursemodule_elements();
-
-        
-
-        // Add standard buttons.
         $this->add_action_buttons();
-        // -> Buttons where data is sent to db
-    }
+        }
 }
 
