@@ -28,10 +28,10 @@ require_once(__DIR__ . '/lib/setup.php');
 
 
 // next 4 lines are new (for debugging)
-// @error_reporting(E_ALL | E_STRICT); // NOT FOR PRODUCTION SERVERS!
-// @ini_set('display_errors', '1');    // NOT FOR PRODUCTION SERVERS!
-// $CFG->debug = (E_ALL | E_STRICT);   // === DEBUG_DEVELOPER - NOT FOR PRODUCTION SERVERS!
-// $CFG->debugdisplay = 1;             // NOT FOR PRODUCTION SERVERS!
+@error_reporting(E_ALL | E_STRICT); // NOT FOR PRODUCTION SERVERS!
+@ini_set('display_errors', '1');    // NOT FOR PRODUCTION SERVERS!
+$CFG->debug = (E_ALL | E_STRICT);   // === DEBUG_DEVELOPER - NOT FOR PRODUCTION SERVERS!
+$CFG->debugdisplay = 1;             // NOT FOR PRODUCTION SERVERS!
 
 
 // There is no php closing tag in this file,
