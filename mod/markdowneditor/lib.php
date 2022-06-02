@@ -50,17 +50,17 @@ function markdowneditor_supports($feature) {
  * @param mod_markdowneditor_mod_form $mform The form.
  * @return int The id of the newly inserted record.
  */
-function markdowneditor_add_instance($moduleinstance, $mform = null) {
+    function markdowneditor_add_instance($moduleinstance, $mform = null) {
     global $DB;
-
     $moduleinstance->timecreated = time();
-
     $id = $DB->insert_record('markdowneditor', $moduleinstance);
-
     // Place, where behavior is defined after clicking "Submit"?
 
     return $id;
 }
+
+
+
 
 /**
  * Updates an instance of the mod_markdowneditor in the database.
@@ -99,6 +99,9 @@ function markdowneditor_delete_instance($id) {
 
     return true;
 }
+
+
+
 
 /**
  * Returns the lists of all browsable file areas within the given module context.

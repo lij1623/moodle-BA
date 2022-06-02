@@ -88,8 +88,8 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         // }
         // $mform->addRule('name', null, 'required', null, 'client');
         // $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        $this->standard_coursemodule_elements();
         $this->add_action_buttons();
+        $this->standard_coursemodule_elements();
         }
 }
 
