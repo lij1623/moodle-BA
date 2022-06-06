@@ -82,6 +82,7 @@ class renderer_base {
      * @return Mustache_Engine
      */
     protected function get_mustache() {
+        $uniqidhelper = new \core\output\mustache_uniqid_helper();
         global $CFG;
 
         if ($this->mustache === null) {
@@ -124,6 +125,8 @@ class renderer_base {
                              'pix' => array($pixhelper, 'pix'),
                              'shortentext' => array($shortentexthelper, 'shorten'),
                              'userdate' => array($userdatehelper, 'transform'),
+                             //new
+                             'uniqid' => array($uniqidhelper, 'uniqid'),
                          );
 
             $this->mustache = new \core\output\mustache_engine(array(

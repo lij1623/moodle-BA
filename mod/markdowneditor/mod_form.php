@@ -75,8 +75,6 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         $buttonarraylist[] = &$mform->createElement('button', 'ul', 'Unordered List');
         $mform->addGroup($buttonarraylist);
 
-
-
         $mform->addElement('editor', 'markdowneditor', 'Seiteninhalt');
         $mform->addRule('markdowneditor', get_string('required'), 'required', null, 'client');
 
