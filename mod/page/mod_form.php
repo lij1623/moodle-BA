@@ -106,7 +106,9 @@ class mod_page_mod_form extends moodleform_mod {
 
         //-------------------------------------------------------
         $this->add_action_buttons();
-
+        $mdbuttonarray = array();
+        $mdbuttonarray[] = &$mform->createElement('submit', 'submitmarkdown', 'Im Markdown-Format abspeichern und zum Kurs');
+        $mform->addGroup($mdbuttonarray);
         //-------------------------------------------------------
         $mform->addElement('hidden', 'revision');
         $mform->setType('revision', PARAM_INT);

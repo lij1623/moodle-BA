@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_markdowneditor';
 $plugin->release = '0.1.0';
-$plugin->version = 2022052200;
+$plugin->version = 2022060700;
 $plugin->requires = 2021051700;
 $plugin->maturity = MATURITY_ALPHA;
