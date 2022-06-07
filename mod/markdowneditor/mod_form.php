@@ -35,12 +35,10 @@ require_once($CFG->dirroot.'/course/moodleform_mod.php');
  */
 class mod_markdowneditor_mod_form extends moodleform_mod {
 
-    /**
-     * Defines forms elements
-     */
     public function definition() {
         global $CFG, $DB;
         $mform = $this->_form;
+        $config = get_config('markdowneditor');
         
         // GENERAL
         $mform->addElement('header', 'general', get_string('general', 'form'));
@@ -56,6 +54,15 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
 
         // CONTENT 
         $mform->addElement('header', 'contentsection', 'Inhalt im Markdownformat');
+        //$mform->addElement('editor', 'markdowneditor', get_string('content', 'markdowneditor'), null, markdowneditor_get_editor_options($this->context));
+        $mform->addElement('editor', 'markdowneditor', 'Seiteninhalt');
+        $mform->addRule('markdowneditor', get_string('required'), 'required', null, 'client');
+
+        $mform->addElement('header', 'appearancehdr', get_string('appearance'));
+
+        //new
+        
+        //new
         // buttons
         $buttonarrayheadingsheadings = array();
         $buttonarrayheadings[] = &$mform->createElement('button', 'heading1', 'H1');
@@ -75,8 +82,8 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         $buttonarraylist[] = &$mform->createElement('button', 'ul', 'Unordered List');
         $mform->addGroup($buttonarraylist);
 
-        $mform->addElement('editor', 'markdowneditor', 'Seiteninhalt');
-        $mform->addRule('markdowneditor', get_string('required'), 'required', null, 'client');
+        
+        
 
         //get_string('name', 'mod_markdowneditor'
         // if (!empty($CFG->formatstringstriptags)) {
@@ -86,8 +93,13 @@ class mod_markdowneditor_mod_form extends moodleform_mod {
         // }
         // $mform->addRule('name', null, 'required', null, 'client');
         // $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        $this->add_action_buttons();
+       
         $this->standard_coursemodule_elements();
+
+        $this->add_action_buttons();
+        $mdbuttonarray = array();
+        $mdbuttonarray[] = &$mform->createElement('submit', 'submitmarkdown', 'Im Markdown-Format abspeichern und zum Kurs');
+        $mform->addGroup($mdbuttonarray);
         }
 }
 

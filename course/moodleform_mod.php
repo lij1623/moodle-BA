@@ -1196,7 +1196,7 @@ abstract class moodleform_mod extends moodleform {
      * @param string $submit2label  null means default, false means none, string is label text
      * @return void
      */
-    function add_action_buttons($cancel=true, $submitlabel=null, $submit2label=null) {
+    function add_action_buttons($cancel=true, $submitlabel=null, $submit2label=null, $submitmarkdown=null) {
         if (is_null($submitlabel)) {
             $submitlabel = get_string('savechangesanddisplay');
         }

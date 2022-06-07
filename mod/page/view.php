@@ -78,7 +78,10 @@ if ($inpopup and $page->display == RESOURCELIB_DISPLAY_POPUP) {
 }
 $PAGE->activityheader->set_attrs($activityheader);
 echo $OUTPUT->header();
+
+// needed
 $content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_page', 'content', $page->revision);
+// needed
 $formatoptions = new stdClass;
 $formatoptions->noclean = true;
 $formatoptions->overflowdiv = true;
