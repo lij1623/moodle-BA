@@ -18,14 +18,14 @@
 /**
  * Page module version information
  *
- * @package mod_page
+ * @package mod_mdgen
  * @copyright  2009 Petr Skoda (http://skodak.org)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require('../../config.php');
-require_once($CFG->dirroot.'/mod/page/lib.php');
-require_once($CFG->dirroot.'/mod/page/locallib.php');
+require_once($CFG->dirroot.'/mod/mdgen/lib.php');
+require_once($CFG->dirroot.'/mod/mdgen/locallib.php');
 require_once($CFG->libdir.'/completionlib.php');
 
 $id      = optional_param('id', 0, PARAM_INT); // Course Module ID
@@ -33,28 +33,28 @@ $p       = optional_param('p', 0, PARAM_INT);  // Page instance ID
 $inpopup = optional_param('inpopup', 0, PARAM_BOOL);
 
 if ($p) {
-    if (!$page = $DB->get_record('page', array('id'=>$p))) {
+    if (!$page = $DB->get_record('mdgen', array('id'=>$p))) {
         print_error('invalidaccessparameter');
     }
-    $cm = get_coursemodule_from_instance('page', $page->id, $page->course, false, MUST_EXIST);
+    $cm = get_coursemodule_from_instance('mdgen', $page->id, $page->course, false, MUST_EXIST);
 
 } else {
-    if (!$cm = get_coursemodule_from_id('page', $id)) {
+    if (!$cm = get_coursemodule_from_id('mdgen', $id)) {
         print_error('invalidcoursemodule');
     }
-    $page = $DB->get_record('page', array('id'=>$cm->instance), '*', MUST_EXIST);
+    $page = $DB->get_record('mdgen', array('id'=>$cm->instance), '*', MUST_EXIST);
 }
 
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
-require_capability('mod/page:view', $context);
+//require_capability('mod/mdgen:view', $context);
 
 // Completion and trigger events.
-page_view($page, $course, $cm, $context);
+mdgen_view($page, $course, $cm, $context);
 
-$PAGE->set_url('/mod/page/view.php', array('id' => $cm->id));
+$PAGE->set_url('/mod/mdgen/view.php', array('id' => $cm->id));
 
 $options = empty($page->displayoptions) ? [] : (array) unserialize_array($page->displayoptions);
 
@@ -80,14 +80,15 @@ $PAGE->activityheader->set_attrs($activityheader);
 echo $OUTPUT->header();
 
 // needed
-$content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_page', 'content', $page->revision);
-// $user = $DB->get_record_sql('SELECT LAST() content FROM mdl_page;');
-// needed
-$formatoptions = new stdClass;
-$formatoptions->noclean = true;
-$formatoptions->overflowdiv = true;
-$formatoptions->context = $context;
-$content = format_text($content, $page->contentformat, $formatoptions);
+// $content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_mdgen', 'content', $page->revision);
+// // $user = $DB->get_record_sql('SELECT LAST() content FROM mdl_page;');
+// // needed
+// $formatoptions = new stdClass;
+// $formatoptions->noclean = true;
+// $formatoptions->overflowdiv = true;
+// $formatoptions->context = $context;
+// $content = format_text($content, $page->contentformat, $formatoptions);
+$content = 'test';
 echo $OUTPUT->box($content, "generalbox center clearfix");
 
 if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'])) {
