@@ -79,25 +79,25 @@ if ($inpopup and $page->display == RESOURCELIB_DISPLAY_POPUP) {
 $PAGE->activityheader->set_attrs($activityheader);
 echo $OUTPUT->header();
 
-// // needed
-// $content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_mdgen', 'content', $page->revision);
-// // $user = $DB->get_record_sql('SELECT LAST() content FROM mdl_page;');
-// // needed
-// $formatoptions = new stdClass;
-// $formatoptions->noclean = true;
-// $formatoptions->overflowdiv = true;
-// $formatoptions->context = $context;
-// $content = format_text($content, $page->contentformat, $formatoptions);
-$content = '';
+
+$content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_mdgen', 'content', $page->revision);
+
+
+$formatoptions = new stdClass;
+$formatoptions->noclean = true;
+$formatoptions->overflowdiv = true;
+$formatoptions->context = $context;
+$content = format_text($content, $page->contentformat, $formatoptions);
+echo $OUTPUT->box($content, "generalbox center clearfix");
+
+// Get data from content from database
+//$user = $DB->get_record_sql('SELECT LAST() content FROM mdl_page;');
 
 // save content in slides path 
 // $myfile = fopen("C:\xampp\htdocs\generator\slides\filename.md", "w") or die("Unable to open file!");
 // $text = $page->content;
 // fwrite($myfile, $text);
 // fclose($myfile);
-
-
-echo $OUTPUT->box($content, "generalbox center clearfix");
 
 if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'])) {
     $strlastmodified = get_string("lastmodified");

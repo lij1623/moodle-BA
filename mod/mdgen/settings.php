@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin administration pages are defined here.
+ * Plugin administration mdgens are defined here.
  *
  * @package     mod_mdgen
  * @category    admin
@@ -23,11 +23,30 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-if ($hassiteconfig) {
-    // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedIf
-    if ($ADMIN->fulltree) {
-        // TODO: Define the plugin settings page - {@link https://docs.moodle.org/dev/Admin_settings}.
-    }
+if ($ADMIN->fulltree) {
+    require_once("$CFG->libdir/resourcelib.php");
+
+    $displayoptions = resourcelib_get_displayoptions(array(RESOURCELIB_DISPLAY_OPEN, RESOURCELIB_DISPLAY_POPUP));
+    $defaultdisplayoptions = array(RESOURCELIB_DISPLAY_OPEN);
+
+    //--- general settings -----------------------------------------------------------------------------------
+    $settings->add(new admin_setting_configmultiselect('mdgen/displayoptions',
+        get_string('displayoptions', 'mdgen'), get_string('configdisplayoptions', 'mdgen'),
+        $defaultdisplayoptions, $displayoptions));
+
+    //--- modedit defaults -----------------------------------------------------------------------------------
+    $settings->add(new admin_setting_heading('mdgenmodeditdefaults', get_string('modeditdefaults', 'admin'), get_string('condifmodeditdefaults', 'admin')));
+
+    $settings->add(new admin_setting_configcheckbox('mdgen/printintro',
+        get_string('printintro', 'mdgen'), get_string('printintroexplain', 'mdgen'), 0));
+    $settings->add(new admin_setting_configcheckbox('mdgen/printlastmodified',
+        get_string('printlastmodified', 'mdgen'), get_string('printlastmodifiedexplain', 'mdgen'), 1));
+    $settings->add(new admin_setting_configselect('mdgen/display',
+        get_string('displayselect', 'mdgen'), get_string('displayselectexplain', 'mdgen'), RESOURCELIB_DISPLAY_OPEN, $displayoptions));
+    $settings->add(new admin_setting_configtext('mdgen/popupwidth',
+        get_string('popupwidth', 'mdgen'), get_string('popupwidthexplain', 'mdgen'), 620, PARAM_INT, 7));
+    $settings->add(new admin_setting_configtext('mdgen/popupheight',
+        get_string('popupheight', 'mdgen'), get_string('popupheightexplain', 'mdgen'), 450, PARAM_INT, 7));
 }

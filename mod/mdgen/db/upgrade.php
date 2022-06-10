@@ -34,7 +34,7 @@ defined('MOODLE_INTERNAL') || die();
 function xmldb_mdgen_upgrade($oldversion) {
     global $DB;
 
-    $dbman = $DB->get_manager();
+   $dbman = $DB->get_manager();
 
     // For further information please read {@link https://docs.moodle.org/dev/Upgrade_API}.
     //

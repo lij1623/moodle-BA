@@ -18,7 +18,7 @@
 /**
  * Definition of log events
  *
- * @package    mod_page
+ * @package    mod_mdgen
  * @category   log
  * @copyright  2010 Petr Skoda (http://skodak.org)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,8 +27,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $logs = array(
-    array('module'=>'mdgen', 'action'=>'view', 'mtable'=>'page', 'field'=>'name'),
-    array('module'=>'page', 'action'=>'view all', 'mtable'=>'page', 'field'=>'name'),
-    array('module'=>'page', 'action'=>'update', 'mtable'=>'page', 'field'=>'name'),
-    array('module'=>'page', 'action'=>'add', 'mtable'=>'page', 'field'=>'name'),
+    array('module'=>'mdgen', 'action'=>'view', 'mtable'=>'mdgen', 'field'=>'name'),
+    array('module'=>'mdgen', 'action'=>'view all', 'mtable'=>'mdgen', 'field'=>'name'),
+    array('module'=>'mdgen', 'action'=>'update', 'mtable'=>'mdgen', 'field'=>'name'),
+    array('module'=>'mdgen', 'action'=>'add', 'mtable'=>'mdgen', 'field'=>'name'),
 );

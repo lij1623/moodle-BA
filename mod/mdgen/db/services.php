@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $functions = array(
 
-    'mod_mdgen_view_mdgen' => array(
+    'mod_mdgen_view_page' => array(
         'classname'     => 'mod_mdgen_external',
         'methodname'    => 'view_mdgen',
         'description'   => 'Simulate the view.php web interface mdgen: trigger events, completion, etc...',
@@ -37,7 +37,7 @@ $functions = array(
         'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
     ),
 
-    'mod_mdgene_get_mdgens_by_courses' => array(
+    'mod_mdgene_get_pages_by_courses' => array(
         'classname'     => 'mod_mdgen_external',
         'methodname'    => 'get_mdgens_by_courses',
         'description'   => 'Returns a list of mdgens in a provided list of courses, if no list is provided all mdgens that the user

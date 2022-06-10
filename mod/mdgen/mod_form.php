@@ -61,6 +61,7 @@ class mod_mdgen_mod_form extends moodleform_mod {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions), $this->current->display);
         } else {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions));
+            $options = [];
         }
         if (count($options) == 1) {
             $mform->addElement('hidden', 'display');
@@ -70,6 +71,7 @@ class mod_mdgen_mod_form extends moodleform_mod {
         } else {
             $mform->addElement('select', 'display', get_string('displayselect', 'mdgen'), $options);
             $mform->setDefault('display', $config->display);
+            
         }
 
         if (array_key_exists(RESOURCELIB_DISPLAY_POPUP, $options)) {

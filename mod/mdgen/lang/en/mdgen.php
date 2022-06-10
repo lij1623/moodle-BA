@@ -25,40 +25,58 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['mdgendisabled'] = 'The legacy "mdgen" activity is disabled.';
-$string['mdgenneedsupgrade'] = 'The legacy "mdgen" activity has been removed.';
-$string['mdgen:addinstance'] = 'Add a new mdgen';
-$string['mdgen:exportownsubmission'] = 'Export own submission';
-$string['mdgen:exportsubmission'] = 'Export submission';
-$string['mdgen:grade'] = 'Grade mdgen';
-$string['mdgen:mdgen'] = 'Markdown-Editor';
-$string['mdgen:submit'] = 'Submit mdgen';
-$string['mdgen:view'] = 'View mdgen';
-$string['messageprovider:mdgen_updates'] = 'mdgen notifications';
-$string['modulename'] = 'Markdown-Editor';
-$string['modulenameplural'] = 'mdgens (Disabled)';
-$string['modulename_help'] = 'Legacy activity module that has been removed from Moodle.';
-$string['page-mod-mdgen-submissions'] = 'mdgen module submission page';
-$string['page-mod-mdgen-view'] = 'mdgen module main page';
-$string['page-mod-mdgen-x'] = 'Any mdgen module page';
-$string['pluginadministration'] = 'mdgen 2.2 (Disabled) administration';
-$string['pluginname'] = 'Markdown-Editor';
-$string['privacy:markedsubmissionspath'] = 'markedsubmissions';
-$string['privacy:metadata:mdgenfilter'] = 'Filter preference of mdgen submissions.';
-$string['privacy:metadata:mdgenperpage'] = 'Number of mdgen submissions shown per page preference.';
-$string['privacy:metadata:mdgenmailinfo'] = 'Mail info preference for mdgen submissions.';
-$string['privacy:metadata:mdgenquickgrade'] = 'Quick grading preference for mdgen submissions.';
-$string['privacy:metadata:mdgen_submissions'] = 'mdgen submissions associated with an mdgen.';
-$string['privacy:metadata:mdgen_submissions:userid'] = 'The user ID submitting the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:timecreated'] = 'The creation date/time of the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:timemodified'] = 'The modification date/time of the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:numfiles'] = 'The maximum number of files allowed for the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:data1'] = 'The onlinetext submitted for the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:data2'] = 'The tracked status for the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:grade'] = 'The grade value awarded for the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:submissioncomment'] = 'The submission comment accompanying the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:teacher'] = 'The teacher user ID grading the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:timemarked'] = 'The marking date/time of the mdgen submission.';
-$string['privacy:metadata:mdgen_submissions:mailed'] = 'The mailed notification status of the mdgen submission.';
-$string['privacy:submissionpath'] = 'submission';
-$string['upgradenotification'] = 'This activity is based on an older mdgen module.';
+
+$string['configdisplayoptions'] = 'Select all options that should be available, existing settings are not modified. Hold CTRL key to select multiple fields.';
+$string['content'] = 'mdgen content';
+$string['contentheader'] = 'Content';
+$string['createmdgen'] = 'Create a new mdgen resource';
+$string['displayoptions'] = 'Available display options';
+$string['displayselect'] = 'Display';
+$string['displayselectexplain'] = 'Select display type.';
+$string['indicator:cognitivedepth'] = 'mdgen cognitive';
+$string['indicator:cognitivedepth_help'] = 'This indicator is based on the cognitive depth reached by the student in a mdgen resource.';
+$string['indicator:cognitivedepthdef'] = 'mdgen cognitive';
+$string['indicator:cognitivedepthdef_help'] = 'The participant has reached this percentage of the cognitive engagement offered by the mdgen resources during this analysis interval (Levels = No view, View)';
+$string['indicator:cognitivedepthdef_link'] = 'Learning_analytics_indicators#Cognitive_depth';
+$string['indicator:socialbreadth'] = 'mdgen social';
+$string['indicator:socialbreadth_help'] = 'This indicator is based on the social breadth reached by the student in a mdgen resource.';
+$string['indicator:socialbreadthdef'] = 'mdgen social';
+$string['indicator:socialbreadthdef_help'] = 'The participant has reached this percentage of the social engagement offered by the mdgen resources during this analysis interval (Levels = No participation, Participant alone)';
+$string['indicator:socialbreadthdef_link'] = 'Learning_analytics_indicators#Social_breadth';
+$string['legacyfiles'] = 'Migration of old course file';
+$string['legacyfilesactive'] = 'Active';
+$string['legacyfilesdone'] = 'Finished';
+$string['modulename'] = 'mdgen';
+$string['modulename_help'] = 'The mdgen module enables a teacher to create a web mdgen resource using the text editor. A mdgen can display text, images, sound, video, web links and embedded code, such as Google maps.
+
+Advantages of using the mdgen module rather than the file module include the resource being more accessible (for example to users of mobile devices) and easier to update.
+
+For large amounts of content, it\'s recommended that a book is used rather than a mdgen.
+
+A mdgen may be used
+
+* To present the terms and conditions of a course or a summary of the course syllabus
+* To embed several videos or sound files together with some explanatory text';
+$string['modulename_link'] = 'mod/mdgen/view';
+$string['modulenameplural'] = 'mdgens';
+$string['optionsheader'] = 'Display options';
+$string['mdgen-mod-page-x'] = 'Any mdgen module mdgen';
+$string['mdgen:addinstance'] = 'Add a new mdgen resource';
+$string['mdgen:view'] = 'View mdgen content';
+$string['pluginadministration'] = 'mdgen module administration';
+$string['pluginname'] = 'mdgen';
+$string['popupheight'] = 'Pop-up height (in pixels)';
+$string['popupheightexplain'] = 'Specifies default height of popup windows.';
+$string['popupwidth'] = 'Pop-up width (in pixels)';
+$string['popupwidthexplain'] = 'Specifies default width of popup windows.';
+$string['printintro'] = 'Display mdgen description';
+$string['printintroexplain'] = 'Display mdgen description above content?';
+$string['printlastmodified'] = 'Display last modified date';
+$string['printlastmodifiedexplain'] = 'Display last modified date below content?';
+$string['privacy:metadata'] = 'The mdgen resource plugin does not store any personal data.';
+$string['search:activity'] = 'mdgen';
+
+// Deprecated since 4.0.
+$string['printheading'] = 'Display mdgen name';
+$string['printheadingexplain'] = 'Display mdgen name above content?';
+

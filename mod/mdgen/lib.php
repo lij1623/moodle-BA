@@ -87,10 +87,10 @@ function mdgen_get_post_actions() {
 }
 
 /**
- * Add page instance.
+ * Add mdgen instance.
  * @param stdClass $data
- * @param mod_page_mod_form $mform
- * @return int new page instance id
+ * @param mod_mdgen_mod_form $mform
+ * @return int new mdgen instance id
  */
 function mdgen_add_instance($data, $mform = null) {
     global $CFG, $DB;
@@ -100,17 +100,17 @@ function mdgen_add_instance($data, $mform = null) {
 
     $data->timemodified = time();
     $displayoptions = array();
-    if ($data->display == RESOURCELIB_DISPLAY_POPUP) {
-        $displayoptions['popupwidth']  = $data->popupwidth;
-        $displayoptions['popupheight'] = $data->popupheight;
-    }
+    // if ($data->display == RESOURCELIB_DISPLAY_POPUP) {
+    //     $displayoptions['popupwidth']  = $data->popupwidth;
+    //     $displayoptions['popupheight'] = $data->popupheight;
+    // }
     $displayoptions['printintro']   = $data->printintro;
     $displayoptions['printlastmodified'] = $data->printlastmodified;
     $data->displayoptions = serialize($displayoptions);
 
     if ($mform) {
-        $data->content       = $data->page['text'];
-        $data->contentformat = $data->page['format'];
+        $data->content       = $data->mdgen['text'];
+        $data->contentformat = $data->mdgen['format'];
     }
 
     $data->id = $DB->insert_record('mdgen', $data);
@@ -119,8 +119,8 @@ function mdgen_add_instance($data, $mform = null) {
     $DB->set_field('course_modules', 'instance', $data->id, array('id'=>$cmid));
     $context = context_module::instance($cmid);
 
-    if ($mform and !empty($data->page['itemid'])) {
-        $draftitemid = $data->page['itemid'];
+    if ($mform and !empty($data->mdgen['itemid'])) {
+        $draftitemid = $data->mdgen['itemid'];
         $data->content = file_save_draft_area_files($draftitemid, $context->id, 'mod_mdgen', 'content', 0, mdgen_get_editor_options($context), $data->content);
         $DB->update_record('mdgen', $data);
     }
@@ -210,10 +210,10 @@ function mdgen_get_coursemodule_info($coursemodule) {
     global $CFG, $DB;
     require_once("$CFG->libdir/resourcelib.php");
 
-    // if (!$page = $DB->get_record('mdgen', array('id'=>$coursemodule->instance),
-    //         'id, name, display, displayoptions, intro, introformat')) {
-    //     return NULL;
-    // }
+    if (!$page = $DB->get_record('mdgen', array('id'=>$coursemodule->instance),
+            'id, name, display, displayoptions, intro, introformat')) {
+        return NULL;
+    }
 
     $info = new cached_cm_info();
     $info->name = $page->name;
