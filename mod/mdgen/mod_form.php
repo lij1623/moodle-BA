@@ -50,8 +50,8 @@ class mod_mdgen_mod_form extends moodleform_mod {
         $this->standard_intro_elements();
 
         //-------------------------------------------------------
-        $mform->addElement('header', 'contentsection', get_string('contentheader', 'mdgen'));
-        $mform->addElement('editor', 'mdgen', get_string('content', 'mdgen'), null, mdgen_get_editor_options($this->context));
+        $mform->addElement('header', 'contentsection', 'Inhalt');
+        $mform->addElement('editor', 'mdgen', 'Inhalt im Markdown Format', null, mdgen_get_editor_options($this->context));
         $mform->addRule('mdgen', get_string('required'), 'required', null, 'client');
 
         //-------------------------------------------------------

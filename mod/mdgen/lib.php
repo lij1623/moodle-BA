@@ -210,10 +210,10 @@ function mdgen_get_coursemodule_info($coursemodule) {
     global $CFG, $DB;
     require_once("$CFG->libdir/resourcelib.php");
 
-    if (!$page = $DB->get_record('mdgen', array('id'=>$coursemodule->instance),
-            'id, name, display, displayoptions, intro, introformat')) {
-        return NULL;
-    }
+    // if (!$page = $DB->get_record('mdgen', array('id'=>$coursemodule->instance),
+    //         'id, name, display, displayoptions, intro, introformat')) {
+    //     return NULL;
+    // }
 
     $info = new cached_cm_info();
     $info->name = $page->name;

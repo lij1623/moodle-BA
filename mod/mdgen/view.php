@@ -79,7 +79,7 @@ if ($inpopup and $page->display == RESOURCELIB_DISPLAY_POPUP) {
 $PAGE->activityheader->set_attrs($activityheader);
 echo $OUTPUT->header();
 
-// needed
+// // needed
 // $content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_mdgen', 'content', $page->revision);
 // // $user = $DB->get_record_sql('SELECT LAST() content FROM mdl_page;');
 // // needed
@@ -88,7 +88,15 @@ echo $OUTPUT->header();
 // $formatoptions->overflowdiv = true;
 // $formatoptions->context = $context;
 // $content = format_text($content, $page->contentformat, $formatoptions);
-$content = 'test';
+$content = '';
+
+// save content in slides path 
+// $myfile = fopen("C:\xampp\htdocs\generator\slides\filename.md", "w") or die("Unable to open file!");
+// $text = $page->content;
+// fwrite($myfile, $text);
+// fclose($myfile);
+
+
 echo $OUTPUT->box($content, "generalbox center clearfix");
 
 if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'])) {
