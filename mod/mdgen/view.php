@@ -90,12 +90,12 @@ $formatoptions->context = $context;
 $content = format_text($content, $page->contentformat, $formatoptions);
 echo $OUTPUT->box($content, "generalbox center clearfix");
 
-// Get data from content from database
-//$user = $DB->get_record_sql('SELECT LAST() content FROM mdl_page;');
+
+
 
 // save content in slides path 
 // $myfile = fopen("C:\xampp\htdocs\generator\slides\filename.md", "w") or die("Unable to open file!");
-// $text = $page->content;
+// $text = $contentnew->content;
 // fwrite($myfile, $text);
 // fclose($myfile);
 
@@ -105,3 +105,10 @@ if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'
 }
 
 echo $OUTPUT->footer();
+
+// Get data from content from database
+$contentnew = $DB->get_record_sql('SELECT content FROM mdl_mdgen ORDER BY id DESC LIMIT 1');
+$myfile = fopen("C:\xampp\htdocs\generator\slides\ki1.md", "w") or die("Unable to open file!");
+$text = $contentnew->content;
+fwrite($myfile, $text);
+fclose($myfile);

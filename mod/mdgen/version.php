@@ -26,6 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_mdgen';
 $plugin->release = '0.1.0';
-$plugin->version = 2022060800;
+$plugin->version = 2022061100;
 $plugin->requires = 2021051700;
 $plugin->maturity = MATURITY_ALPHA;
+$plugin->cron      = 0;

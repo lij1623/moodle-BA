@@ -37,7 +37,7 @@ if ($ADMIN->fulltree) {
         $defaultdisplayoptions, $displayoptions));
 
     //--- modedit defaults -----------------------------------------------------------------------------------
-    $settings->add(new admin_setting_heading('mdgenmodeditdefaults', get_string('modeditdefaults', 'admin'), get_string('condifmodeditdefaults', 'admin')));
+    $settings->add(new admin_setting_heading('pagemodeditdefaults', get_string('modeditdefaults', 'admin'), get_string('condifmodeditdefaults', 'admin')));
 
     $settings->add(new admin_setting_configcheckbox('mdgen/printintro',
         get_string('printintro', 'mdgen'), get_string('printintroexplain', 'mdgen'), 0));

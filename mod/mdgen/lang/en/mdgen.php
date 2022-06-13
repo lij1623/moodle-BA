@@ -60,7 +60,7 @@ A mdgen may be used
 $string['modulename_link'] = 'mod/mdgen/view';
 $string['modulenameplural'] = 'mdgens';
 $string['optionsheader'] = 'Display options';
-$string['mdgen-mod-page-x'] = 'Any mdgen module mdgen';
+$string['page-mod-mdgen-x'] = 'Any mdgen module mdgen';
 $string['mdgen:addinstance'] = 'Add a new mdgen resource';
 $string['mdgen:view'] = 'View mdgen content';
 $string['pluginadministration'] = 'mdgen module administration';

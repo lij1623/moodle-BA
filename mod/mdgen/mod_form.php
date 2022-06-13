@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Page configuration form
+ * mdgen configuration form
  *
  * @package mod_mdgen
  * @copyright  2009 Petr Skoda (http://skodak.org)
@@ -50,8 +50,8 @@ class mod_mdgen_mod_form extends moodleform_mod {
         $this->standard_intro_elements();
 
         //-------------------------------------------------------
-        $mform->addElement('header', 'contentsection', 'Inhalt');
-        $mform->addElement('editor', 'mdgen', 'Inhalt im Markdown Format', null, mdgen_get_editor_options($this->context));
+        $mform->addElement('header', 'contentsection', get_string('contentheader', 'mdgen'));
+        $mform->addElement('editor', 'mdgen', get_string('content', 'mdgen'), null, mdgen_get_editor_options($this->context));
         $mform->addRule('mdgen', get_string('required'), 'required', null, 'client');
 
         //-------------------------------------------------------
@@ -61,7 +61,6 @@ class mod_mdgen_mod_form extends moodleform_mod {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions), $this->current->display);
         } else {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions));
-            $options = [];
         }
         if (count($options) == 1) {
             $mform->addElement('hidden', 'display');
@@ -71,7 +70,6 @@ class mod_mdgen_mod_form extends moodleform_mod {
         } else {
             $mform->addElement('select', 'display', get_string('displayselect', 'mdgen'), $options);
             $mform->setDefault('display', $config->display);
-            
         }
 
         if (array_key_exists(RESOURCELIB_DISPLAY_POPUP, $options)) {
@@ -108,9 +106,9 @@ class mod_mdgen_mod_form extends moodleform_mod {
 
         //-------------------------------------------------------
         $this->add_action_buttons();
-        $mdbuttonarray = array();
-        $mdbuttonarray[] = &$mform->createElement('submit', 'submitmarkdown', 'Im Markdown-Format abspeichern und zum Kurs');
-        $mform->addGroup($mdbuttonarray);
+        // $mdbuttonarray = array();
+        // $mdbuttonarray[] = &$mform->createElement('submit', 'submitmarkdown', 'Im Markdown-Format abspeichern und zum Kurs');
+        // $mform->addGroup($mdbuttonarray);
         //-------------------------------------------------------
         $mform->addElement('hidden', 'revision');
         $mform->setType('revision', PARAM_INT);
@@ -127,7 +125,7 @@ class mod_mdgen_mod_form extends moodleform_mod {
         if ($this->current->instance) {
             $draftitemid = file_get_submitted_draft_itemid('mdgen');
             $defaultvalues['mdgen']['format'] = $defaultvalues['contentformat'];
-            $defaultvalues['mdgen']['text']   = file_prepare_draft_area($draftitemid, $this->context->id, 'mdgen',
+            $defaultvalues['mdgen']['text']   = file_prepare_draft_area($draftitemid, $this->context->id, 'mod_mdgen',
                     'content', 0, mdgen_get_editor_options($this->context), $defaultvalues['content']);
             $defaultvalues['mdgen']['itemid'] = $draftitemid;
         }

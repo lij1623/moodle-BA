@@ -24,7 +24,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 /**
- * List of features supported in Page module
+ * List of features supported in mdgen module
  * @param string $feature FEATURE_xx constant for requested feature
  * @return mixed True if module supports feature, false if not, null if doesn't know or string for the module purpose.
  */
@@ -100,10 +100,10 @@ function mdgen_add_instance($data, $mform = null) {
 
     $data->timemodified = time();
     $displayoptions = array();
-    // if ($data->display == RESOURCELIB_DISPLAY_POPUP) {
-    //     $displayoptions['popupwidth']  = $data->popupwidth;
-    //     $displayoptions['popupheight'] = $data->popupheight;
-    // }
+    if ($data->display == RESOURCELIB_DISPLAY_POPUP) {
+        $displayoptions['popupwidth']  = $data->popupwidth;
+        $displayoptions['popupheight'] = $data->popupheight;
+    }
     $displayoptions['printintro']   = $data->printintro;
     $displayoptions['printlastmodified'] = $data->printlastmodified;
     $data->displayoptions = serialize($displayoptions);
@@ -132,7 +132,7 @@ function mdgen_add_instance($data, $mform = null) {
 }
 
 /**
- * Update page instance.
+ * Update mdgen instance.
  * @param object $data
  * @param object $mform
  * @return bool true
@@ -175,7 +175,7 @@ function mdgen_update_instance($data, $mform) {
 }
 
 /**
- * Delete page instance.
+ * Delete mdgen instance.
  * @param int $id
  * @return bool true
  */
@@ -204,7 +204,7 @@ function mdgen_delete_instance($id) {
  * See {@link course_modinfo::get_array_of_activities()}
  *
  * @param stdClass $coursemodule
- * @return cached_cm_info Info to customise main page display
+ * @return cached_cm_info Info to customise main mdgen display
  */
 function mdgen_get_coursemodule_info($coursemodule) {
     global $CFG, $DB;
@@ -241,7 +241,7 @@ function mdgen_get_coursemodule_info($coursemodule) {
 /**
  * Lists all browsable file areas
  *
- * @package  mod_page
+ * @package  mod_mdgen
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -255,9 +255,9 @@ function mdgen_get_file_areas($course, $cm, $context) {
 }
 
 /**
- * File browsing support for page module content area.
+ * File browsing support for mdgen module content area.
  *
- * @package  mod_page
+ * @package  mod_mdgen
  * @category files
  * @param stdClass $browser file browser instance
  * @param stdClass $areas file areas
@@ -337,7 +337,7 @@ function mdgen_pluginfile($course, $cm, $context, $filearea, $args, $forcedownlo
     // $arg could be revision number or index.html
     $arg = array_shift($args);
     if ($arg == 'index.html' || $arg == 'index.htm') {
-        // serve page content
+        // serve mdgen content
         $filename = $arg;
 
         if (!$page = $DB->get_record('mdgen', array('id'=>$cm->instance), '*', MUST_EXIST)) {
@@ -383,18 +383,18 @@ function mdgen_pluginfile($course, $cm, $context, $filearea, $args, $forcedownlo
 }
 
 /**
- * Return a list of page types
+ * Return a list of mdgen types
  * @param string $mdgentype current mdgen type
  * @param stdClass $parentcontext Block's parent context
  * @param stdClass $currentcontext Current context of block
  */
-function mdgen_mdgen_type_list($pagetype, $parentcontext, $currentcontext) {
-    $module_pagetype = array('mod-mdgen-*'=>get_string('mdgen-mod-mdgen-x', 'mdgen'));
+function page_mdgen_type_list($pagetype, $parentcontext, $currentcontext) {
+    $module_pagetype = array('mod-mdgen-*'=>get_string('page-mod-mdgen-x', 'mdgen'));
     return $module_pagetype;
 }
 
 /**
- * Export page resource contents
+ * Export mdgen resource contents
  *
  * @return array of file content
  */
@@ -405,7 +405,7 @@ function mdgen_export_contents($cm, $baseurl) {
 
     $page = $DB->get_record('mdgen', array('id'=>$cm->instance), '*', MUST_EXIST);
 
-    // page contents
+    // mdgen contents
     $fs = get_file_storage();
     $files = $fs->get_area_files($context->id, 'mdgen', 'content', 0, 'sortorder DESC, id ASC', false);
     foreach ($files as $fileinfo) {
@@ -429,7 +429,7 @@ function mdgen_export_contents($cm, $baseurl) {
         $contents[] = $file;
     }
 
-    // page html conent
+    // mdgen html conent
     $filename = 'index.html';
     $pagefile = array();
     $pagefile['type']         = 'file';
@@ -495,7 +495,7 @@ function mdgen_dndupload_handle($uploadinfo) {
 /**
  * Mark the activity completed (if required) and trigger the course_module_viewed event.
  *
- * @param  stdClass $mdgen      mdgen object
+ * @param  stdClass $page       mdgen object
  * @param  stdClass $course     course object
  * @param  stdClass $cm         course module object
  * @param  stdClass $context    context object

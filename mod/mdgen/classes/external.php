@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Page external API
+ * mdgen external API
  *
  * @package    mod_mdgen
  * @category   external
@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die;
 require_once("$CFG->libdir/externallib.php");
 
 /**
- * Page external functions
+ * mdgen external functions
  *
  * @package    mod_mdgen
  * @category   external
@@ -54,7 +54,7 @@ class mod_mdgen_external extends external_api {
     }
 
     /**
-     * Simulate the page/view.php web interface page: trigger events, completion, etc...
+     * Simulate the mdgen/view.php web interface mdgen: trigger events, completion, etc...
      *
      * @param int $mdgenid the mdgen instance id
      * @return array of warnings and status result
@@ -80,7 +80,7 @@ class mod_mdgen_external extends external_api {
 
         require_capability('mod/mdgen:view', $context);
 
-        // Call the page/lib API.
+        // Call the mdgen/lib API.
         mdgen_view($page, $course, $cm, $context);
 
         $result = array();
@@ -110,7 +110,7 @@ class mod_mdgen_external extends external_api {
      * @return external_function_parameters
      * @since Moodle 3.3
      */
-    public static function get_pages_by_courses_parameters() {
+    public static function get_mdgens_by_courses_parameters() {
         return new external_function_parameters (
             array(
                 'courseids' => new external_multiple_structure(
@@ -125,18 +125,18 @@ class mod_mdgen_external extends external_api {
      * If no list is provided all pages that the user can view will be returned.
      *
      * @param array $courseids course ids
-     * @return array of warnings and pages
+     * @return array of warnings and mdgens
      * @since Moodle 3.3
      */
-    public static function get_pages_by_courses($courseids = array()) {
+    public static function get_mdgens_by_courses($courseids = array()) {
 
         $warnings = array();
-        $returnedpages = array();
+        $returnedmdgens = array();
 
         $params = array(
             'courseids' => $courseids,
         );
-        $params = self::validate_parameters(self::get_pages_by_courses_parameters(), $params);
+        $params = self::validate_parameters(self::get_mdgens_by_courses_parameters(), $params);
 
         $mycourses = array();
         if (empty($params['courseids'])) {
@@ -151,8 +151,8 @@ class mod_mdgen_external extends external_api {
 
             // Get the pages in this course, this function checks users visibility permissions.
             // We can avoid then additional validate_context calls.
-            $pages = get_all_instances_in_courses("mdgen", $courses);
-            foreach ($pages as $page) {
+            $mdgens = get_all_instances_in_courses("mdgen", $courses);
+            foreach ($mdgens as $page) {
                 $context = context_module::instance($page->coursemodule);
                 // Entry to return.
                 $page->name = external_format_string($page->name, $context->id);
@@ -167,27 +167,27 @@ class mod_mdgen_external extends external_api {
                                                                 $context->id, 'mod_mdgen', 'content', $page->revision, $options);
                 $page->contentfiles = external_util::get_area_files($context->id, 'mod_mdgen', 'content');
 
-                $returnedpages[] = $page;
+                $returnedmdgens[] = $page;
             }
         }
 
         $result = array(
-            'pages' => $returnedpages,
+            'mdgens' => $returnedmdgens,
             'warnings' => $warnings
         );
         return $result;
     }
 
     /**
-     * Describes the get_pages_by_courses return value.
+     * Describes the get_mdgens_by_courses return value.
      *
      * @return external_single_structure
      * @since Moodle 3.3
      */
-    public static function get_pages_by_courses_returns() {
+    public static function get_mdgens_by_courses_returns() {
         return new external_single_structure(
             array(
-                'pages' => new external_multiple_structure(
+                'mdgens' => new external_multiple_structure(
                     new external_single_structure(
                         array(
                             'id' => new external_value(PARAM_INT, 'Module id'),
