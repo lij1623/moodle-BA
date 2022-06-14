@@ -81,7 +81,11 @@ echo $OUTPUT->header();
 
 
 $content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_mdgen', 'content', $page->revision);
-
+$myfile = fopen("../../../generator/slides/content3.md", "a") or die("Unable to open file!");
+$text = strip_tags($content);
+fwrite($myfile, $text);
+fclose($myfile);
+//die();
 
 $formatoptions = new stdClass;
 $formatoptions->noclean = true;
@@ -90,15 +94,6 @@ $formatoptions->context = $context;
 $content = format_text($content, $page->contentformat, $formatoptions);
 echo $OUTPUT->box($content, "generalbox center clearfix");
 
-
-
-
-// save content in slides path 
-// $myfile = fopen("C:\xampp\htdocs\generator\slides\filename.md", "w") or die("Unable to open file!");
-// $text = $contentnew->content;
-// fwrite($myfile, $text);
-// fclose($myfile);
-
 if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'])) {
     $strlastmodified = get_string("lastmodified");
     echo html_writer::div("$strlastmodified: " . userdate($page->timemodified), 'modified');
@@ -106,9 +101,3 @@ if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'
 
 echo $OUTPUT->footer();
 
-// Get data from content from database
-$contentnew = $DB->get_record_sql('SELECT content FROM mdl_mdgen ORDER BY id DESC LIMIT 1');
-$myfile = fopen("C:\xampp\htdocs\generator\slides\ki1.md", "w") or die("Unable to open file!");
-$text = $contentnew->content;
-fwrite($myfile, $text);
-fclose($myfile);

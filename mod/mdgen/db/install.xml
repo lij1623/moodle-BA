@@ -1,3 +1,5 @@
+<XMLDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PATH="mod/mdgen/db" VERSION="20120122" COMMENT="XMLDB file for mdgen module" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+<TABLES>
 <TABLE NAME="mdgen" COMMENT="Each record is one mdgen and its config data">
 <FIELDS>
 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
@@ -21,3 +23,5 @@
 <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
 </INDEXES>
 </TABLE>
+</TABLES>
+</XMLDB>
