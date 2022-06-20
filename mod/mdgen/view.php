@@ -81,18 +81,33 @@ echo $OUTPUT->header();
 
 
 $content = file_rewrite_pluginfile_urls($page->content, 'pluginfile.php', $context->id, 'mod_mdgen', 'content', $page->revision);
-$myfile = fopen("../../../generator/slides/content3.md", "a") or die("Unable to open file!");
+
+$filename       =  mod_mdgen_create_dynamic_filename_for_mdfile($page->name); 
+$md_filename    =   $filename.'.md';    
+$myfile = fopen("../../../generator/slides/".$md_filename, "a") or die("Unable to open file!");
 $text = strip_tags($content);
 fwrite($myfile, $text);
 fclose($myfile);
-//die();
 
+// nodejs shell commands to be executed here (generator application) to create .html under __slides from the .md file under slides folder 
+
+$if_filename  =   $filename.'IF.html'; 
+$if_content       = "<iframe src='/generator/_slides/$if_filename' width='700px' height='500px'></iframe>";
+$myfile = fopen("../../../generator/iframes/".$if_filename, "a") or die("Unable to open file!");
+$text = $if_content;
+fwrite($myfile, $text);
+fclose($myfile);
+//$content = $text;
 $formatoptions = new stdClass;
 $formatoptions->noclean = true;
 $formatoptions->overflowdiv = true;
 $formatoptions->context = $context;
 $content = format_text($content, $page->contentformat, $formatoptions);
 echo $OUTPUT->box($content, "generalbox center clearfix");
+
+
+
+
 
 if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'])) {
     $strlastmodified = get_string("lastmodified");

@@ -593,3 +593,13 @@ function mod_mdgen_get_path_from_pluginfile(string $filearea, array $args) : arr
         'filepath' => $filepath,
     ];
 }
+
+function mod_mdgen_create_dynamic_filename_for_mdfile($name = ''){
+    $time = time();
+    $file_name = $time;
+    if($name != '')
+    {
+        $file_name = $name.$time;
+    }
+    return $file_name;
+}
