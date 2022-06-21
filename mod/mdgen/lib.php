@@ -595,8 +595,10 @@ function mod_mdgen_get_path_from_pluginfile(string $filearea, array $args) : arr
 }
 
 function mod_mdgen_create_dynamic_filename_for_mdfile($name = ''){
+    // get current timestamp
     $time = time();
     $file_name = $time;
+    // if module entry has a name, give the content the name "name" and append the timestamp, then return the filname 
     if($name != '')
     {
         $file_name = $name.$time;
