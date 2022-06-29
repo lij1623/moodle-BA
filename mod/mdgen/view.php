@@ -94,14 +94,16 @@ fclose($myfile);
 
 // nodejs shell commands to be executed here (generator application) to create .html under __slides from the .md file under slides folder 
 
-//shell_exec
-
+chdir('../../../generator/');
+shell_exec('npm install --force thi-slide-tools thi-slide-theme');
+shell_exec('npm install');
+shell_exec('npm run static -- slides/'.$md_filename);
 
 
 // append IF.html to the filename and save the filename with the content (surrounding tag) in the iframes path 
 $if_filename  =   $filename.'IF.html'; 
 $if_content       = "<iframe src='/generator/_slides/$if_filename' width='700px' height='500px'></iframe>";
-$myfile = fopen("../../../generator/iframes/".$if_filename, "a") or die("Unable to open file!");
+$myfile = fopen("iframes/".$if_filename, "a") or die("Unable to open file!");
 $text = $if_content;
 fwrite($myfile, $text);
 fclose($myfile);

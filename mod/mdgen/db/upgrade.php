@@ -35,6 +35,11 @@ function xmldb_mdgen_upgrade($oldversion) {
     global $DB;
 
    $dbman = $DB->get_manager();
+   if ($oldversion < 2022062900) {
+    // Code to add the column
+
+    upgrade_plugin_savepoint(true, 2022062900, 'mdgen');
+}
 
     // For further information please read {@link https://docs.moodle.org/dev/Upgrade_API}.
     //
@@ -43,3 +48,4 @@ function xmldb_mdgen_upgrade($oldversion) {
 
     return true;
 }
+
